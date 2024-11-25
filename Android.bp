@@ -6647,7 +6647,7 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/vendor.libdpmframework.so"],
-			shared_libs: ["libdiag", "libbinder", "libcutils", "libutils", "liblog", "libhidlbase", "libhardware", "libhardware_legacy", "com.qualcomm.qti.dpm.api@1.0-vendor", "vendor.qti.hardware.dpmservice@1.0-vendor", "vendor.qti.hardware.dpmservice@1.1-vendor", "libc++", "libc", "libm", "libdl", ],
+			shared_libs: ["libhidlbase_shim", "libdiag", "libbinder", "libcutils", "libutils", "liblog", "libhidlbase", "libhardware", "libhardware_legacy", "com.qualcomm.qti.dpm.api@1.0-vendor", "vendor.qti.hardware.dpmservice@1.0-vendor", "vendor.qti.hardware.dpmservice@1.1-vendor", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
@@ -9172,7 +9172,7 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/system_ext/lib64/libwfdmmsrc_system.so"],
-			shared_libs: ["libbinder", "libmmosal", "liblog", "libutils", "libcutils", "libgui", "libui", "libwfdcommonutils", "libwfdconfigutils", "libinput", "libwfdmminterface", "libwfddisplayconfig", "libmedia_helper", "libaudioclient", "libwfdavenhancements", "libhidlbase", "libgralloctypes", "android.hardware.graphics.mapper@4.0", "libc++", "libc", "libm", "libdl", ],
+			shared_libs: ["libgui_shim", "libbinder", "libmmosal", "liblog", "libutils", "libcutils", "libgui", "libui", "libwfdcommonutils", "libwfdconfigutils", "libinput", "libwfdmminterface", "libwfddisplayconfig", "libmedia_helper", "libaudioclient", "libwfdavenhancements", "libhidlbase", "libgralloctypes", "android.hardware.graphics.mapper@4.0", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
@@ -9189,7 +9189,7 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/system_ext/lib64/libwfdnative.so"],
-			shared_libs: ["libandroid_runtime", "libui", "libinput", "libnativehelper", "libutils", "liblog", "libwfdclient", "libhidlbase", "libhidlmemory", "libbinder", "libgui", "android.hidl.base@1.0", "android.hidl.token@1.0-utils", "android.hardware.graphics.common@1.0", "android.hardware.graphics.bufferqueue@1.0", "android.hardware.graphics.bufferqueue@2.0", "libc++", "libc", "libm", "libdl", ],
+			shared_libs: ["libinput_shim", "libandroid_runtime", "libui", "libinput", "libnativehelper", "libutils", "liblog", "libwfdclient", "libhidlbase", "libhidlmemory", "libbinder", "libgui", "android.hidl.base@1.0", "android.hidl.token@1.0-utils", "android.hardware.graphics.common@1.0", "android.hardware.graphics.bufferqueue@1.0", "android.hardware.graphics.bufferqueue@2.0", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
@@ -9671,6 +9671,17 @@ android_app_import {
 	},
 	privileged: true,
 	product_specific: true,
+}
+
+android_app_import {
+	name: "AtFwd2",
+	owner: "xiaomi",
+	apk: "proprietary/system_ext/app/AtFwd2/AtFwd2.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	system_ext_specific: true,
 }
 
 android_app_import {
