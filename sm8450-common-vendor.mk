@@ -404,6 +404,7 @@ PRODUCT_PACKAGES += \
     libizat_client_api \
     libizat_core \
     libkaraokepal \
+    libjnihelper \
     libkeymasterdeviceutils \
     libkeymasterprovision \
     libkeymasterutils \
