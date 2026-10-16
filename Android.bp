@@ -15869,7 +15869,6 @@ cc_prebuilt_library_shared {
                 "libjpeg",
                 "libpiex",
                 "libpng",
-                "libheif",
                 "libnativewindow",
                 "libEGL",
                 "libGLESv2",
